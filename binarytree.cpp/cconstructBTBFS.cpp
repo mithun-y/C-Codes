@@ -54,5 +54,4 @@ int main(){
     int n=sizeof(arr)/sizeof(arr[0]);
     Node* root=construct(arr,n);
     levelorderqueue(root);
-
 }

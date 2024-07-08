@@ -17,7 +17,6 @@ void display(Node* root){
     cout<<root->val<<" ";
     display(root->right);
     display(root->left);
-    
 }
 int sum(Node* root){
     if(root==NULL) return 0;

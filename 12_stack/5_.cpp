@@ -26,8 +26,6 @@ public:
         }
         idx--;
     }
-
-
 };
 int main(){
     Stack st;
