@@ -1,0 +1,88 @@
+warning: in the working copy of '.vscode/settings.json', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.vscode/settings.json b/.vscode/settings.json[m
+[1mindex 3e5eb95..ce18c8e 100644[m
+[1m--- a/.vscode/settings.json[m
+[1m+++ b/.vscode/settings.json[m
+[36m@@ -4,7 +4,7 @@[m
+   "C_Cpp_Runner.debuggerPath": "gdb",[m
+   "C_Cpp_Runner.cStandard": "",[m
+   "C_Cpp_Runner.cppStandard": "",[m
+[31m-  "C_Cpp_Runner.msvcBatchPath": "",[m
+[32m+[m[32m  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",[m
+   "C_Cpp_Runner.useMsvc": false,[m
+   "C_Cpp_Runner.warnings": [[m
+     "-Wall",[m
+[36m@@ -55,5 +55,10 @@[m
+   "C_Cpp_Runner.useLeakSanitizer": false,[m
+   "C_Cpp_Runner.showCompilationTime": false,[m
+   "C_Cpp_Runner.useLinkTimeOptimization": false,[m
+[31m-  "C_Cpp_Runner.msvcSecureNoWarnings": false[m
+[32m+[m[32m  "C_Cpp_Runner.msvcSecureNoWarnings": false,[m
+[32m+[m[32m  "files.associations": {[m
+[32m+[m[32m    "*.ejs": "html",[m
+[32m+[m[32m    "iostream": "cpp",[m
+[32m+[m[32m    "*.tcc": "cpp"[m
+[32m+[m[32m  }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/priorityQueue/maxHeap.cpp b/priorityQueue/maxHeap.cpp[m
+[1mindex df0e8fe..7ad3c91 100644[m
+[1m--- a/priorityQueue/maxHeap.cpp[m
+[1m+++ b/priorityQueue/maxHeap.cpp[m
+[36m@@ -4,8 +4,8 @@[m
+ using namespace std;[m
+ class Maxheap{[m
+     vector<int> hp;[m
+[31m-    void upheapify(int ci){[m
+[31m-        while(ci>0){[m
+[32m+[m[32m    void upheapify(int ci){     //ci child index[m
+[32m+[m[32m        while(ci>0){            //pi parent index[m
+             int pi=(ci-1)/2;[m
+             if(hp[pi]<hp[ci]){[m
+                 swap(hp[pi],hp[ci]);[m
+[36m@@ -50,6 +50,7 @@[m [mpublic:[m
+         hp.pop_back();[m
+         if(!empty()){[m
+             downheapify(0);[m
+[32m+[m[32m            upheapify(remdx);[m
+         } else{[m
+             return;[m
+         }[m
+[36m@@ -76,6 +77,13 @@[m [mpublic:[m
+         if(empty()) return INT_MAX;[m
+         return hp[0];[m
+     }[m
+[32m+[m[32m    void sort(){[m
+[32m+[m[32m        while(!empty()){[m
+[32m+[m[32m            int x=peek();[m
+[32m+[m[32m            pop();[m
+[32m+[m[32m            cout<<x<<" ";[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+     Maxheap(vector<int> v){[m
+         hp=v;[m
+         for(int i=1;i<hp.size();i++){[m
+[36m@@ -84,13 +92,15 @@[m [mpublic:[m
+     }[m
+ };[m
+ int main(){[m
+[31m-    vector<int> v={9,4,5,6,3,2,4,4};[m
+[32m+[m[32m    vector<int> v={4,1,5,3,2};[m
+     // MaxHeap hp(v);[m
+     Maxheap hp(v);[m
+     hp.display();[m
+[31m-    hp.push(100);[m
+[32m+[m[32m    hp.remove(3);[m
+[32m+[m[32m    cout<<endl;[m
+[32m+[m[32m    hp.display();[m[41m [m
+[32m+[m[32m    cout<<endl;[m[41m  [m
+[32m+[m[32m    hp.sort();[m
+     cout<<endl;[m
+     hp.display();[m
+[31m-[m
+[31m-    [m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/priorityQueue/maxHeap.exe b/priorityQueue/maxHeap.exe[m
+[1mindex 232293e..f4b50a6 100644[m
+Binary files a/priorityQueue/maxHeap.exe and b/priorityQueue/maxHeap.exe differ

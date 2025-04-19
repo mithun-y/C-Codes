@@ -4,8 +4,8 @@
 using namespace std;
 class Maxheap{
     vector<int> hp;
-    void upheapify(int ci){
-        while(ci>0){
+    void upheapify(int ci){     //ci child index
+        while(ci>0){            //pi parent index
             int pi=(ci-1)/2;
             if(hp[pi]<hp[ci]){
                 swap(hp[pi],hp[ci]);
@@ -50,6 +50,7 @@ public:
         hp.pop_back();
         if(!empty()){
             downheapify(0);
+            upheapify(remdx);
         } else{
             return;
         }
@@ -76,6 +77,13 @@ public:
         if(empty()) return INT_MAX;
         return hp[0];
     }
+    void sort(){
+        while(!empty()){
+            int x=peek();
+            pop();
+            cout<<x<<" ";
+        }
+    }
     Maxheap(vector<int> v){
         hp=v;
         for(int i=1;i<hp.size();i++){
@@ -84,13 +92,15 @@ public:
     }
 };
 int main(){
-    vector<int> v={9,4,5,6,3,2,4,4};
+    vector<int> v={4,1,5,3,2};
     // MaxHeap hp(v);
     Maxheap hp(v);
     hp.display();
-    hp.push(100);
+    hp.remove(3);
+    cout<<endl;
+    hp.display(); 
+    cout<<endl;  
+    hp.sort();
     cout<<endl;
     hp.display();
-
-    
 }
